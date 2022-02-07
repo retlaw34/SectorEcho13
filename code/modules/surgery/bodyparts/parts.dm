@@ -10,6 +10,8 @@
 	px_y = 0
 	stam_damage_coeff = 1
 	max_stamina_damage = 120
+	grind_results = null
+	wound_resistance = 10
 	is_dimorphic = TRUE
 	var/obj/item/cavity_item
 	var/acceptable_bodytype = BODYTYPE_HUMANOID
@@ -34,6 +36,7 @@
 	icon_state = "default_monkey_chest"
 	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
 
 /obj/item/bodypart/chest/alien
 	icon = 'icons/mob/animal_parts.dmi'
@@ -61,7 +64,7 @@
 		be possessed by the devil? This arm appears to be possessed by no \
 		one though."
 	icon_state = "default_human_l_arm"
-	attack_verb = list("slaps", "punches")
+	attack_verb = list("slapped", "punched")
 	max_damage = 50
 	max_stamina_damage = 50
 	body_zone = BODY_ZONE_L_ARM
@@ -129,15 +132,16 @@
 		owner.set_usable_hands(owner.usable_hands + 1)
 
 	if(owner.hud_used)
-		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
-
+		var/atom/movable/screen/inventory/hand/L = owner.hud_used.hand_slots["[held_index]"]
+		if(L)
+			L.update_icon()
 
 /obj/item/bodypart/l_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_l_arm"
 	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
 	px_x = -5
 	px_y = -3
 
@@ -162,7 +166,7 @@
 	desc = "Over 87% of humans are right handed. That figure is much lower \
 		among humans missing their right arm."
 	icon_state = "default_human_r_arm"
-	attack_verb = list("slaps", "punches")
+	attack_verb = list("slapped", "punched")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
@@ -230,15 +234,16 @@
 		owner.set_usable_hands(owner.usable_hands + 1)
 
 	if(owner.hud_used)
-		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
-
+		var/atom/movable/screen/inventory/hand/R = owner.hud_used.hand_slots["[held_index]"]
+		if(R)
+			R.update_icon()
 
 /obj/item/bodypart/r_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_r_arm"
 	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
 	px_x = 5
 	px_y = -3
 
@@ -263,7 +268,7 @@
 	desc = "Some athletes prefer to tie their left shoelaces first for good \
 		luck. In this instance, it probably would not have helped."
 	icon_state = "default_human_l_leg"
-	attack_verb = list("kicks", "stomps")
+	attack_verb = list("kicked", "stomped")
 	max_damage = 50
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
@@ -330,6 +335,7 @@
 	icon_state = "default_monkey_l_leg"
 	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
 	px_y = 4
 
 /obj/item/bodypart/l_leg/alien
@@ -353,9 +359,9 @@
 	desc = "You put your right leg in, your right leg out. In, out, in, out, \
 		shake it all about. And apparently then it detaches.\n\
 		The hokey pokey has certainly changed a lot since space colonisation."
-	// alternative spellings of 'pokey' are available
+	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
-	attack_verb = list("kicks", "stomps")
+	attack_verb = list("kicked", "stomped")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
@@ -422,6 +428,7 @@
 	icon_state = "default_monkey_r_leg"
 	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	wound_resistance = -10
 	px_y = 4
 
 /obj/item/bodypart/r_leg/alien

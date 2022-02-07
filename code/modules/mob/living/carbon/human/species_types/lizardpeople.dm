@@ -4,7 +4,7 @@
 	id = SPECIES_LIZARD
 	say_mod = "hisses"
 	default_color = "00FF00"
-	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,NO_UNDERWEAR)
+	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,HAS_FLESH,HAS_BONE)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
 	mutant_bodyparts = list("tail_lizard", "snout", "spines", "horns", "frills", "body_markings", "legs")
 	mutanttongue = /obj/item/organ/tongue/lizard
@@ -131,7 +131,7 @@
 	name = "Ash Walker"
 	id = SPECIES_ASHWALKER
 	examine_limb_id = SPECIES_LIZARD
-	species_traits = list(MUTCOLORS,EYECOLOR,LIPS, NO_UNDERWEAR)
+	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,NO_UNDERWEAR,HAS_FLESH,HAS_BONE)
 	inherent_traits = list(TRAIT_CHUNKYFINGERS,TRAIT_NOBREATH)
 	species_language_holder = /datum/language_holder/lizard/ash
 	digitigrade_customization = DIGITIGRADE_FORCED
